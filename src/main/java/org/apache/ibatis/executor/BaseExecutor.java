@@ -130,6 +130,7 @@ public abstract class BaseExecutor implements Executor {
   }
 
   @Override
+  //mine TODO 为什么query接口需要在这儿getBoundSql, 而update在PrepareStatementHandler那儿getBoundSql?
   public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler) throws SQLException {
     BoundSql boundSql = ms.getBoundSql(parameter);
     CacheKey key = createCacheKey(ms, parameter, rowBounds, boundSql);
