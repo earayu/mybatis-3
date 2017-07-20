@@ -49,6 +49,7 @@ public class SimpleExecutor extends BaseExecutor {
       stmt = prepareStatement(handler, ms.getStatementLog());
       return handler.update(stmt);
     } finally {
+      //mine 每次使用都要关闭statement
       closeStatement(stmt);
     }
   }
